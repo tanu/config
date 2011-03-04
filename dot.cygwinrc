@@ -10,9 +10,9 @@ alias ifconfig='ipconfig'
 
 # launch gui explorer
 function e {
-       if [ $1 ne ""]; then
-               explorer $(cygpath -w $1)
+    if [ $# -eq 0 ]; then
+        explorer 
     else
-               explorer $(cygpath -w .)
-       fi
+        explorer $(cygpath -w $1)
+    fi
 };
