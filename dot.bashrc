@@ -1,5 +1,5 @@
 # base-files version 3.9-3
-export PS1="[\[\033[0;34m\]\!:\[\033[0;35m\]\u\[\033[0;30m\]@\[\033[0;35m\]\h \[\033[0;31m\]\w \[\033[0;30m\]]\n\$ "
+export PS1="[\[\033[0;34m\]\!:\[\033[0;35m\]\u\[\033[0;30m\]@\[\033[0;35m\]\h:\[\033[0;31m\]\$(pwd) \[\033[0;30m\]]\n\$ "
 
 # To pick up the latest recommended .bashrc content,
 # look in /etc/defaults/etc/skel/.bashrc
@@ -121,13 +121,22 @@ alias vdir='ls --color=auto --format=long'
 alias ll='ls -l'                              # long list
 alias la='ls -A'                              # all but . and ..
 alias l='ls -CF'                              #
-
+alias つぶやく='t'
 
 export PATH=$HOME/local/bin:$PATH
 
 
 cygwinrc=$HOME/config/dot.cygwinrc
-
 if [ -f $cygwinrc ];then
+    #cygwin環境ならpsで親PIDも出る
+    alias pps='ps'   
     . $cygwinrc
+else
+    alias pps='ps -eo "%P %p %U %a"'    
 fi
+
+nvm=$HOME/.nvm/nvm.sh
+if [ -f $nvm ];then
+    . $nvm
+fi
+source ~/perl5/perlbrew/etc/bashrc
