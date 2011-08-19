@@ -1,5 +1,5 @@
 # base-files version 3.9-3
-export PS1="[\[\033[0;34m\]\!:\[\033[0;35m\]\u\[\033[0;30m\]@\[\033[0;35m\]\h:\[\033[0;31m\]\$(pwd) \[\033[0;30m\]]\n\$ "
+export PS1="[\[\033[0;34m\]\!:\[\033[0;35m\]\u\[\033[0;30m\]@\[\033[0;35m\]\h:\[\033[0;31m\]\$(pwd -P) \[\033[0;30m\]]\n\$ "
 
 # To pick up the latest recommended .bashrc content,
 # look in /etc/defaults/etc/skel/.bashrc
