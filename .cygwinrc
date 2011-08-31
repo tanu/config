@@ -1,0 +1,18 @@
+alias tree='tree.com'
+alias ifconfig='ipconfig'
+
+# Functions
+# #########
+
+# Some example functions
+# function settitle() { echo -ne "\e]2;$@\a\e]1;$@\a"; }
+
+
+# launch gui explorer
+function e {
+    if [ $# -eq 0 ]; then
+        explorer 
+    else
+        explorer $(cygpath -w $1)
+    fi
+};

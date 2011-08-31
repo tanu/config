@@ -1,0 +1,24 @@
+alias a=alias
+alias h=history
+alias ls='ls --ignore tags --color=tty -F'
+alias l='ls -F'
+alias la='ls -Fa'
+alias ll='ls -Fl'
+alias lf='ls -Fla'
+alias sl='ls'
+alias diff='diff -X ~/.diff.ignorefiles'
+alias screen="/usr/bin/screen -xRU"
+
+alias vi='vim'
+alias view='vi -R'
+alias mysqldev='mysql --auto-rehash --pager="vim -R - " -u tech -h dev.db001-09d'
+alias pps='ps -eo "%P %p %U %a"'
+myfind()
+{ 
+    dir=$1;
+    shift;
+    \find $dir -name '.svn' -prune -o -name 'tags' -prune -o $* ;
+}
+
+alias find='myfind'
+

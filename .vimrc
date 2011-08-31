@@ -44,6 +44,7 @@ set autoindent
 "set nohlsearch
 set hlsearch
 set noswapfile
+:syntax on
 
 "autocmd FileType php  :set dictionary=~/.vim/php.dict
 
