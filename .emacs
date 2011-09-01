@@ -60,12 +60,9 @@
 	    (define-key php-mode-map "\C-c}" 'forward-sexp)
 	     (define-key php-mode-map "\C-cg" 'goto-line)))
 
-;;
-;; directログ関連は全部auto-revertモードで展開する
-;;
 (defun my-auto-revert-tail-mode-on ()
   (interactive)
-  (when (string-match "^/home/h_tanaka/direct[^/].*/log/" default-directory)
+  (when (string-match "^/home/tanu/direct[^/].*/log/" default-directory)
           (auto-revert-tail-mode t)))
 
 (add-hook 'find-file-hook 'my-auto-revert-tail-mode-on)
