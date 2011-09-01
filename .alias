@@ -11,7 +11,7 @@ alias screen="/usr/bin/screen -xRU"
 
 alias vi='vim'
 alias view='vi -R'
-alias mysqldev='mysql --auto-rehash --pager="vim -R - " -u tech -h dev.db001-09d'
+alias mysqldev='mysql --auto-rehash --pager="vim -R - " -u hoge -h hostname'
 alias pps='ps -eo "%P %p %U %a"'
 myfind()
 { 
