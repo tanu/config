@@ -29,6 +29,11 @@ export LANG=ja_JP.UTF-8
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' formats '(%s)-[%b]'
 zstyle ':vcs_info:*' actionformats '(%s)-[%b|%a]'
+myvcsinfo() {
+    psvar=()
+    LANG=en_US.UTF-8 vcs_info
+    [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+}
 #end
 
 local RED="%{[31m%}"
@@ -39,11 +44,9 @@ local PINK="%{[35m%}"
 local DEFAULT="%{[m%}"
 
 PROMPT=$'\n'"[$PINK%n$DEFAULT@$PINK%m:$RED%/$DEFAULT][$BLUE%!$DEFAULT]"$'\n'"%# "
-#PROMPT=$'\n'"[fg[pink]}%n$DEFAULT@$PINK%m:$RED%/$DEFAULT][$BLUE%!$DEFAULT]"$'\n'"%# "
-RPROMPT="%1(v|%F{green}%1v%f|)[%D{%H:%M:%S}]"
-#PROMPT2="%n @ %m %% "
-PROMPT2="%{[31m%}%_%%%{[m$} "
-SPROMPT="$RED%r is correct? [n,y,a,e]:$DEFAULT "
+RPROMPT="%1(v|$GREEN%1v%f|)[%D{%H:%M:%S}]"
+PROMPT2="$RED%_%%$DEFAULT "
+SPROMPT="$GREEN%r is correct? [n,y,a,e]:$DEFAULT "
 
 #[ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
     #PROMPT="%{[37m%}${HOST%%.*} ${PROMPT}"
@@ -53,12 +56,7 @@ SPROMPT="$RED%r is correct? [n,y,a,e]:$DEFAULT "
 
 if [ "$TERM" = "screen" ]; then
     preexec() { 
-        #for vcs
-        psvar=()
-        LANG=en_US.UTF-8 vcs_info
-        [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
-
-        #  
+        myvcsinfo
         emulate -L zsh
         local -a cmd; cmd=(${(z)2})
         lang=`echo $LANG | sed "s/.\+\.\(.\).\+/\1/"`
@@ -67,6 +65,7 @@ if [ "$TERM" = "screen" ]; then
     }
     precmd() { # コマンドの実行後に呼び出される
         if [ "$c" = "cd" ]; then
+            myvcsinfo
             echo -n "k${PWD/$HOME/~}:$c:t($lang)\\"
         fi
     }
