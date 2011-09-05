@@ -25,6 +25,7 @@ compinit
 #export LANG=Ja_JP.eucJP
 export LANG=ja_JP.UTF-8
 
+
 #for version control from here
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' formats '(%s)-[%b]'
@@ -51,6 +52,9 @@ SPROMPT="$GREEN%r is correct? [n,y,a,e]:$DEFAULT "
 #[ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
     #PROMPT="%{[37m%}${HOST%%.*} ${PROMPT}"
 
+[ -f ~/.setenv ] &&
+    source ~/.setenv
+
 [ -f ~/.alias ] &&
     source ~/.alias
 
@@ -70,3 +74,6 @@ if [ "$TERM" = "screen" ]; then
         fi
     }
 fi
+
+
+

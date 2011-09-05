@@ -1,0 +1,5 @@
+export PATH=$HOME/rakudo-star-2011.01/install/bin:$HOME/local/bin:$PATH
+export SVNROOT='http://foo/bar/'
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tanu/local/lib
+# as same as curl -k
+export GIT_SSL_NO_VERIFY=true
