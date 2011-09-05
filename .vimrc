@@ -1,3 +1,25 @@
+set nocompatible
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'Shougo/neocomplcache'
+Bundle 'Shougo/unite.vim'
+Bundle 'kana/vim-operator-user'
+Bundle 'operator-camelize'
+
+set ts=4
+set sw=4
+set showmatch
+set number
+set title
+set expandtab
+set autoindent
+"set nohlsearch
+set hlsearch
+set noswapfile
+
+
 vnoremap <silent> * "vy/\V<C-r>=substitute(escape(@v,'\/'),"\n",'\\n','g')<CR><CR>
 nmap <ESC><ESC> :nohlsearch<CR><ESC> 
 " tabを開く
@@ -16,7 +38,8 @@ let g:neocomplcache_dictionary_filetype_lists = {
     \ 'pl' : $HOME . '/.vim/dict/perl.dict'
 \ }
 let g:neocomplcache_max_list = 100
-let g:neocomplcache_enable_quick_match = 1
+" supportされなくなった？
+"let g:neocomplcache_enable_quick_match = 1
 
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><C-e>  neocomplcache#close_popup()
@@ -33,18 +56,6 @@ nmap <leader>c <Plug>(operator-camelize)<CR><ESC>
 nmap <leader>C <Plug>(operator-decamelize)<CR><ESC>
 
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
-
-set ts=4
-set sw=4
-set showmatch
-set number
-set title
-set expandtab
-set autoindent
-"set nohlsearch
-set hlsearch
-set noswapfile
-:syntax on
 
 "autocmd FileType php  :set dictionary=~/.vim/php.dict
 
