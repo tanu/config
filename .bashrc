@@ -37,7 +37,7 @@ fi
 
 case $OS in
     Windows*)
-        if [ -f ~/.cygwinrc]; then
+        if [ -f ~/.cygwinrc ]; then
             . ~/.cygwinrc
         fi
     ;;
