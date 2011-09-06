@@ -1,8 +1,10 @@
-# .bash_profile
+# .zprofile
 
-ln -sf $SSH_AUTH_SOCK ~/.ssh/ssh_auth_sock
 
-export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
+if [ -n $SSH_AUTH_SOCK ]; then
+    ln -sf $SSH_AUTH_SOCK ~/.ssh/ssh_auth_sock
+    export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
+fi
 
 # User specific environment and startup programs
 
@@ -10,4 +12,4 @@ PATH=$PATH:$HOME/bin
 
 export PATH
 
-screen
+screen -xRU

@@ -7,7 +7,7 @@ alias ll='ls -Fl'
 alias lf='ls -Fla'
 alias sl='ls'
 alias diff='diff -X ~/.diff.ignorefiles'
-alias screen="/usr/bin/screen -xRU"
+#alias screen="/usr/bin/screen -xRU"
 
 alias vi='vim'
 alias view='vi -R'
