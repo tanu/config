@@ -42,19 +42,14 @@ alias ll='ls -l'                              # long list
 alias la='ls -A'                              # all but . and ..
 alias l='ls -CF'                              #
 
-cygwinrc=$HOME/config/dot.cygwinrc
-if [ -f $cygwinrc ];then
-    #cygwin環境ならpsで親PIDも出る
-    alias pps='ps'
-    . $cygwinrc
-else
-    alias pps='ps -eo "%P %p %U %a"'
-fi
+#cygwin環境ならpsで親PIDも出る
+alias pps='ps'
 
 nvm=$HOME/.nvm/nvm.sh
 if [ -f $nvm ];then
     . $nvm
 fi
+
 source ~/perl5/perlbrew/etc/bashrc
 
 

@@ -3,29 +3,32 @@ set nocompatible
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
+Bundle 'gmarik/vundle'
 Bundle 'Shougo/neocomplcache'
 Bundle 'Shougo/unite.vim'
 Bundle 'kana/vim-operator-user'
 Bundle 'operator-camelize'
+"Bundle 'vim-scripts/vcscommand.vim'
+Bundle 'git://repo.or.cz/vcscommand.git'
 
 set ts=4
 set sw=4
 set showmatch
 set number
 set title
-set expandtab
+"set expandtab
 set autoindent
 "set nohlsearch
 set hlsearch
 set noswapfile
-
+syntax on
 
 vnoremap <silent> * "vy/\V<C-r>=substitute(escape(@v,'\/'),"\n",'\\n','g')<CR><CR>
 nmap <ESC><ESC> :nohlsearch<CR><ESC> 
 " tabを開く
-nmap <leader>1 :tabnew<CR><ESC>
-nmap <leader>q :tabp<CR><ESC>
-nmap <leader>w :tabn<CR><ESC>
+nmap <Leader>1 :tabnew<CR><ESC>
+nmap <Leader>q :tabp<CR><ESC>
+nmap <Leader>w :tabn<CR><ESC>
 
 " neocomplcache
 let g:neocomplcache_enable_at_startup = 1 " 起動時に有効化
@@ -52,8 +55,8 @@ smap <silent> <C-e> <Plug>(neocomplcache_snippets_expand)
 
 
 " operator-camelize <Leader>はデフォルトで\
-nmap <leader>c <Plug>(operator-camelize)<CR><ESC>
-nmap <leader>C <Plug>(operator-decamelize)<CR><ESC>
+nmap <Leader>c <Plug>(operator-camelize)<CR><ESC>
+nmap <Leader>C <Plug>(operator-decamelize)<CR><ESC>
 
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 
@@ -90,4 +93,8 @@ au FileType unite inoremap <silent> <buffer> <expr> <C-l> unite#do_action('vspli
 " ESCキーを2回押すと終了する
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
+
+map ,ptv <Esc>:'<,'>! perltidy<CR>
+map ,pt <Esc>:%! perltidy<CR>
+map ,diff :vert diffsplit
 

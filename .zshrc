@@ -16,7 +16,11 @@ setopt nolistbeep
 setopt prompt_subst
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/h_tanaka/.zshrc'
+
+[ "$OS"="Windows*" ] &&
+	source $HOME/.cygwinrc
+
+zstyle :compinstall filename "$HOME/.zshrc"
 
 autoload -Uz compinit
 compinit
@@ -74,6 +78,5 @@ if [ "$TERM" = "screen" ]; then
         fi
     }
 fi
-
 
 
