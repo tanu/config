@@ -41,16 +41,20 @@ alias vdir='ls --color=auto --format=long'
 alias ll='ls -l'                              # long list
 alias la='ls -A'                              # all but . and ..
 alias l='ls -CF'                              #
+alias ssh='ssh -F ~/.ssh/config'
 
 #cygwin環境ならpsで親PIDも出る
 alias pps='ps'
 
 nvm=$HOME/.nvm/nvm.sh
 if [ -f $nvm ];then
-    . $nvm
+    source $nvm
 fi
 
-source ~/perl5/perlbrew/etc/bashrc
+#pb=$HOME/perl5/perlbrew/etc/bashrc
+#if [ -f $pb ];then
+	#source $pb
+#fi
 
 
 # Functions
